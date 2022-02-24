@@ -44,12 +44,12 @@ class Greedy{
         if (max_weight >= (i.weight+weight)){
         weight+=i.weight;
         value+=i.value;
-        //System.out.println(weight+":"+value+":"+d);
         }
         else{
         }
         d--;
         }
+        System.out.println(weight+":"+value);
         return value;
 
     }

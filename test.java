@@ -9,7 +9,7 @@ public class test {
         int greedy_wins=0;
        for(int j=0;j<100;j++){
        Random rand= new Random();
-       int items= rand.nextInt(101)+1;
+       int items= 3;
         List<Item> arr = new ArrayList<Item>();
         for(int i=0;i<items;i++){
         int random= Item.randnum();
@@ -17,6 +17,7 @@ public class test {
         Item I = new Item(random,random2);
         arr.add(I);
         }
+        //Collections.sort(arr);
         int dynamic_vals=dynamic.main(arr);
         int greedy_vals=Greedy.main(arr);
         if(dynamic_vals > greedy_vals){
@@ -24,6 +25,7 @@ public class test {
         }
         else if(dynamic_vals < greedy_vals){
             greedy_wins+=1;
+            break;
         }else{
             same+=1;
         }
