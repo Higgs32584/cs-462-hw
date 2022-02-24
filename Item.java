@@ -29,20 +29,14 @@ class Item implements Comparable<Item>{
    return "Density: "+density+"Weight: "+weight+"Value:" + value;
 
    }
-
-
-    public static void main(String args[]) {
-        List<Item> arr= new ArrayList<Item>();
-        for(int i=0;i<5;i++){
-        int random= randnum();
-        int random2= randnum();
-        Item I = new Item(random,random2);
-        arr.add(I);
-        }
+}
+class Greedy{
+    public static int main(List<Item> args) {
+        List<Item> arr= args;
         Collections.sort(arr);
         //Items allowed
         int max_weight=10;
-        int d=4;
+        int d=args.size() - 1;
         int weight=0;
         int value=0;
         while(d != -1 && weight<= max_weight+ arr.get(d).weight){
@@ -50,16 +44,13 @@ class Item implements Comparable<Item>{
         if (max_weight >= (i.weight+weight)){
         weight+=i.weight;
         value+=i.value;
-        System.out.println("Selected Item : " +d + " Value: "+ i.value+" Weight: "+i.weight+ "\n");
-
+        //System.out.println(weight+":"+value+":"+d);
         }
         else{
-        System.out.println("Item : " +d + " Value: "+ i.value+" Weight: "+i.weight+ "Was NOT Selected\n");
         }
         d--;
         }
-        System.out.println("Final Weight"+weight);
-        System.out.println("Final Value "+value);
+        return value;
 
     }
 
