@@ -8,8 +8,8 @@ public class test {
         int dynamic_wins=0;
         int greedy_wins=0;
        for(int j=0;j<100;j++){
-       Random rand= new Random();
-       int items= 3;
+        Random rand = new Random();
+        int items= rand.nextInt(101)+1;
         List<Item> arr = new ArrayList<Item>();
         for(int i=0;i<items;i++){
         int random= Item.randnum();
@@ -25,7 +25,6 @@ public class test {
         }
         else if(dynamic_vals < greedy_vals){
             greedy_wins+=1;
-            break;
         }else{
             same+=1;
         }

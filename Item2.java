@@ -33,10 +33,21 @@ class dynamic{
                     value_vals[0][j]= value;
                         System.out.print(value+", yes|");
                 }
-                else if(value < value_vals[i-1][j]){
-                    weight_vals[i][j] = weight_vals[i-1][j];
-                    value_vals[i][j] = value_vals[i-1][j];
+                else if( j == 0){
+                    weight_vals[i][0]= weight;
+                    value_vals[j][0]= value;
+                    System.out.print(value+", yes|");
+                }
+                else if(value < value_vals[i][j-1] || value < value_vals[i-1][j]){
+                    if(value < value_vals[i-1][j]){
+                        weight_vals[i][j] = weight_vals[i-1][j];
+                        value_vals[i][j] = value_vals[i-1][j];
+                        System.out.print(value_vals[i-1][j]+", no|");
+                    } else if(value < value_vals[i][j-1]) {
+                    weight_vals[i][j] = weight_vals[i][j-1];
+                    value_vals[i][j] = value_vals[i][j-1];
                     System.out.print(value_vals[i][j]+", no|");
+                    }
                 }
                 else{
                     weight_vals[i][j] = weight;
